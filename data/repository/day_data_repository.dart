@@ -1,6 +1,6 @@
-import 'package:front/data/api/api_util.dart';
-import 'package:front/domain/model/day.dart';
-import 'package:front/domain/repository/day_repository.dart';
+import 'package:habr_flutter_clean_arch/data/api/api_util.dart';
+import 'package:habr_flutter_clean_arch/domain/model/day.dart';
+import 'package:habr_flutter_clean_arch/domain/repository/day_repository.dart';
 
 class DayDataRepository extends DayRepository {
   final ApiUtil _apiUtil;
