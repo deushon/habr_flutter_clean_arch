@@ -1,7 +1,7 @@
-import 'package:front/data/api/request/get_day_body.dart';
-import 'package:front/data/mapper/day_mapper.dart';
-import 'package:front/data/api/service/sunrise_service.dart';
-import 'package:front/domain/model/day.dart';
+import 'package:habr_flutter_clean_arch/data/api/request/get_day_body.dart';
+import 'package:habr_flutter_clean_arch/data/mapper/day_mapper.dart';
+import 'package:habr_flutter_clean_arch/data/api/service/sunrise_service.dart';
+import 'package:habr_flutter_clean_arch/domain/model/day.dart';
 
 class ApiUtil {
   final SunriseService _sunriseService;
