@@ -4,6 +4,8 @@ import 'package:habr_flutter_clean_arch/domain/state/home/home_state.dart';
 import 'package:habr_flutter_clean_arch/internal/dependencies/home_module.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -12,7 +14,7 @@ class _HomeState extends State<Home> {
   final _latController = TextEditingController();
   final _lngController = TextEditingController();
 
-  HomeState _homeState;
+  late HomeState _homeState;
 
   @override
   void initState() {
@@ -39,7 +41,7 @@ class _HomeState extends State<Home> {
           children: [
             _getRowInput(),
             SizedBox(height: 20),
-            RaisedButton(
+            TextButton(
               child: Text('Получить'),
               onPressed: _getDay,
             ),
@@ -57,7 +59,6 @@ class _HomeState extends State<Home> {
         Expanded(
           child: TextField(
             controller: _latController,
-            autofocus: false,
             keyboardType: TextInputType.numberWithOptions(decimal: true, signed: true),
             decoration: InputDecoration(hintText: 'Широта'),
           ),
@@ -66,7 +67,6 @@ class _HomeState extends State<Home> {
         Expanded(
           child: TextField(
             controller: _lngController,
-            autofocus: false,
             keyboardType: TextInputType.numberWithOptions(decimal: true, signed: true),
             decoration: InputDecoration(hintText: 'Долгота'),
           ),
@@ -82,8 +82,9 @@ class _HomeState extends State<Home> {
           return Center(
             child: CircularProgressIndicator(),
           );
-        if (_homeState.day == null) return Container();
-        return Column(
+        if (_homeState.isGeted == false) return Container();
+            else {
+          return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text('Восход: ${_homeState.day.sunrise.toLocal()}'),
@@ -92,14 +93,17 @@ class _HomeState extends State<Home> {
             Text('Продолжительность: ${Duration(seconds: _homeState.day.dayLength)}'),
           ],
         );
+        }
       },
     );
   }
 
   void _getDay() {
     // здесь получаем данные
-    final lat = double.tryParse(_latController.text);
-    final lng = double.tryParse(_lngController.text);
-    _homeState.getDay(latitude: lat, longitude: lng);
+
+      final lat = double.tryParse(_latController.text);
+      final lng = double.tryParse(_lngController.text);
+      _homeState.getDay(latitude: lat!, longitude: lng!);
+
   }
 }
