@@ -1,5 +1,5 @@
-import 'package:front/data/api/model/api_day.dart';
-import 'package:front/domain/model/day.dart';
+import 'package:habr_flutter_clean_arch/data/api/model/api_day.dart';
+import 'package:habr_flutter_clean_arch/domain/model/day.dart';
 
 class DayMapper {
   static Day fromApi(ApiDay day) {
