@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front/presentation/home.dart';
+import 'package:habr_flutter_clean_arch/presentation/home.dart';
 
 class Application extends StatelessWidget {
   @override
