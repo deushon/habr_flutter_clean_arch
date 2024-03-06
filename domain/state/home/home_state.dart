@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import 'package:front/domain/repository/day_repository.dart';
-import 'package:front/domain/model/day.dart';
+import 'package:habr_flutter_clean_arch/domain/repository/day_repository.dart';
+import 'package:habr_flutter_clean_arch/domain/model/day.dart';
 
 part 'home_state.g.dart';
 
